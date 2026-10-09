@@ -7,58 +7,36 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+## Junteng Liu
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+Ph.D. candidate in Computer Science, HKUST NLP Group.
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+[Email](mailto:jliugi@connect.ust.hk) | [Google Scholar](https://scholar.google.com/citations?hl=en&user=tbK9jl4AAAAJ&view_op=list_works&sortby=pubdate) | [GitHub](https://github.com/Vicent0205) | [X](https://x.com/junteng88716710)
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+## Education
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+{% for education in site.data.cv.education %}
+- **{{ education.studyType }}{% if education.area != empty %} in {{ education.area }}{% endif %}**, {{ education.institution }}. {{ education.startDate }} - {% if education.endDate == empty %}Present{% else %}{{ education.endDate }}{% endif %}. {{ education.summary }}
+{% endfor %}
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+## Research Experience
+
+{% for work in site.data.cv.work %}
+- **{{ work.position }}, {{ work.name }}**. {{ work.startDate }} - {% if work.endDate == empty %}Present{% else %}{{ work.endDate }}{% endif %}. {{ work.summary }}
+{% endfor %}
+
+## Skills and Research Expertise
+
+{% for skill in site.data.cv.skills %}
+{{ skill.keywords | join: ", " }}.
+{% endfor %}
+
+## Publications
+
+{% include personal-publications.html %}
+
+## Honors
+
+{% for award in site.data.cv.awards %}
+- **{{ award.title }}**, {{ award.awarder }}.
+{% endfor %}

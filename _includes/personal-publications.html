@@ -1,0 +1,9 @@
+<ol>
+{% for publication in site.data.cv.publications %}
+  <li>
+    <p><strong>{{ publication.name | escape }}</strong><br>
+    {{ publication.authors | escape }}<br>
+    <em>{{ publication.publisher | escape }}, {{ publication.releaseDate | escape }}</em>. {{ publication.summary | escape }}</p>
+  </li>
+{% endfor %}
+</ol>
